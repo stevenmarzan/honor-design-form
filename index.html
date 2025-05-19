@@ -8,22 +8,22 @@
     * {
       font-family: Arial, sans-serif;
     }
-    @media (max-width: 768px) {
+    
+  
   .sasha-helper {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    border-top: 2px solid #ccc;
-    border-radius: 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    padding: 10px;
-    background: white;
-    max-height: 100px;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 2px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 100px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
   .sasha-helper.active {
     max-height: 400px;
   }
@@ -46,32 +46,12 @@
     text-align: center;
     margin: 5px 0;
   }
-  .chat-box {
-    display: none;
-  }
+  
   .sasha-helper.active .chat-box {
     display: block;
   }
-  .sasha-close {
-    display: block;
-    text-align: right;
-    font-size: 14px;
-    color: #666;
-    cursor: pointer;
-    margin-bottom: 5px;
-  }
-  .sasha-toggle {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-top: 5px;
-    font-size: 13px;
-    color: #003366;
-    cursor: pointer;
-    background: #eef2f5;
-    padding: 4px;
-    border-radius: 5px;
-  }
+  
+  
 }
   .container {
     margin: 10px;
@@ -149,17 +129,7 @@
       padding: 30px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .sasha-helper {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 200px;
-      background: white;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-    }
+    
     .sasha-helper img {
       width: 100%;
       border-radius: 50%;
@@ -243,18 +213,20 @@
     .cta button:hover {
       background-color: #005599;
     }
-  </style>
+  
+  @keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
 </head>
 <body>
-  <div class="sasha-helper" id="sashaHelper">
-    <img src="https://raw.githubusercontent.com/stevenmarzan/honor-design-form/main/sasha1.png alt="Sasha, Your Design Assistant" />
-    <p><strong>Meet Sasha</strong><br>Your design assistant at Honor Works. She’s here to walk you through the process and offer suggestions if you get stuck.</p>
-    <div class="sasha-toggle" onclick="toggleSasha()">👩‍💻 Chat with Sasha</div>
-    <div class="chat-box">
-      <div class="sasha-close" onclick="toggleSasha()">❌ Close</div>
-      <textarea id="chatPrompt" placeholder="Ask Sasha for ideas..."></textarea>
-      <button onclick="askSasha()">Get Suggestion</button>
-      <div id="chatResponse" class="chat-response"></div>
+  
+    
+  
+
+</div>
+      
     </div>
   </div>
 
@@ -364,10 +336,35 @@
         alert("An unexpected error occurred.");
       }
     }
-  function toggleSasha() {
-  const helper = document.getElementById("sashaHelper");
-  helper.classList.toggle("active");
-}
+   
 </script>
-</body>
+<div id="sashaPopup" style="position: fixed; bottom: 20px; left: auto; right: 80px; width: 2.5in; height: 3.5in; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); padding: 10px; display: none; z-index: 9999;">
+  <div style="text-align: right;">
+    <button onclick="toggleSashaPopup()" style="background: none; border: none; font-size: 16px; cursor: pointer;">❌</button>
+  </div>
+  <div style="text-align: center;">
+  <img src="https://raw.githubusercontent.com/stevenmarzan/honor-design-form/2cebff0764c79c143c68e9737738db78134dc5e4/sasha1.png" style="width: 120px; height: 120px; display: block; margin: 0 auto 10px auto; animation: fadeIn 1s ease-in-out;" />
+
+  <div style="font-size: 14px;">Hi, I’m Sasha! Need help coming up with the perfect design?</div>
+</div>
+  <textarea id="chatPrompt" placeholder="Type your idea here..." style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+  <button onclick="askSasha()" style="margin-top: 5px; width: 100%; padding: 5px; background-color: #003366; color: white; border: none; border-radius: 5px;">Get Suggestion</button>
+  <div id="chatResponse" style="font-size: 12px; margin-top: 10px;"></div>
+</div>
+
+<button id="sashaToggle" onclick="toggleSashaPopup()" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #003366; color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 24px; cursor: pointer; z-index: 9998;">💬</button>
+
+<script>
+  function toggleSashaPopup() {
+    const popup = document.getElementById("sashaPopup");
+    const toggle = document.getElementById("sashaToggle");
+    if (popup.style.display === "none") {
+      popup.style.display = "block";
+    } else {
+      popup.style.display = "none";
+    }
+  }
+</script>
+
+
 </html>

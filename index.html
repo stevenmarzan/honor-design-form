@@ -175,44 +175,33 @@
     }
 
     async function submitForm() {
-      const formData = new FormData();
+  const data = {
+    customerName: document.getElementById("customerName").value,
+    customerEmail: document.getElementById("customerEmail").value,
+    recipient: document.getElementById("recipientName").value,
+    message: document.getElementById("mainMessage").value,
+    aiHelp: document.getElementById("aiHelp").value,
+    purpose: [...document.querySelectorAll('input[name="purpose"]:checked')].map(cb => cb.value).join(', '),
+    style: [...document.querySelectorAll('input[name="style"]:checked')].map(cb => cb.value).join(', '),
+    notes: document.getElementById("extraNotes").value
+  };
 
-      formData.append("customerName", document.getElementById("customerName").value);
-      formData.append("customerEmail", document.getElementById("customerEmail").value);
-      formData.append("recipient", document.getElementById("recipientName").value);
-      formData.append("message", document.getElementById("mainMessage").value);
-      formData.append("aiHelp", document.getElementById("aiHelp").value);
-      formData.append("notes", document.getElementById("extraNotes").value);
+  try {
+    const response = await fetch("YOUR_SCRIPT_URL_HERE", {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
 
-      const purpose = [...document.querySelectorAll('input[name="purpose"]:checked')].map(cb => cb.value).join(', ');
-      const style = [...document.querySelectorAll('input[name="style"]:checked')].map(cb => cb.value).join(', ');
-
-      formData.append("purpose", purpose);
-      formData.append("style", style);
-
-      const symbolsFile = document.getElementById("symbols").files[0];
-      if (symbolsFile) {
-        formData.append("symbols", symbolsFile);
-      }
-
-      await generatePreview(`Layered artwork for ${formData.get("recipient")} with message: ${formData.get("message")}`);
-
-      try {
-        const response = await fetch("https://your-secure-backend.onrender.com/api/send-design", {
-          method: "POST",
-          body: formData
-        });
-
-        if (response.ok) {
-          alert("Design request submitted! You'll hear from us soon.");
-        } else {
-          alert("There was a problem submitting your request.");
-        }
-      } catch (error) {
-        console.error("Submission failed", error);
-        alert("An unexpected error occurred.");
-      }
+    if (response.ok) {
+      alert("Design request submitted! Check your inbox.");
+    } else {
+      alert("There was a problem submitting your request.");
     }
+  } catch (error) {
+    console.error("Submission failed", error);
+    alert("An unexpected error occurred.");
+  }
+}
   </script>
 </body>
 </html>

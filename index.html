@@ -1,4 +1,4 @@
-<div class="step">
+<div class="step" style="font-family: Arial, sans-serif;">
   <h2>Step 1: What is this for?</h2>
   <label style="margin-bottom: 2px; display: flex; align-items: center; line-height: 1.2; font-size: 14px;"><input type="checkbox" style="margin-right: 8px;" name="purpose" value="Retirement"> Retirement</label><br>
   <label style="margin-bottom: 2px; display: flex; align-items: center; line-height: 1.2; font-size: 14px;"><input type="checkbox" style="margin-right: 6px;" name="purpose" value="Memorial"> Memorial</label><br>
@@ -6,7 +6,7 @@
   <label><input type="checkbox" name="purpose" value="Something Special"> Something Special</label>
 </div>
 
-<div class="step">
+<div class="step" style="font-family: Arial, sans-serif;">
   <h2>Step 2: What's the message?</h2>
   <label for="recipientName">Recipient or Theme:</label>
   <input type="text" id="recipientName" placeholder="e.g., MAJ Richard Satchels" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;" />
@@ -18,7 +18,7 @@
   <textarea id="aiHelp" rows="3" placeholder="e.g., A few details you'd like included..." style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
 </div>
 
-<div class="step">
+<div class="step" style="font-family: Arial, sans-serif;">
   <h2>Step 3: Choose Your Style (Check all that apply)</h2>
   <label><input type="checkbox" name="style" value="Layered Wood"> Layered Wood</label><br>
   <label><input type="checkbox" name="style" value="Acrylic"> Acrylic</label><br>
@@ -28,26 +28,32 @@
   <input type="file" id="symbols" accept="image/*" />
 </div>
 
-<div class="step">
+<div class="step" style="font-family: Arial, sans-serif;">
   <h2>Optional: Upload Additional Files</h2>
   <label style="font-weight: normal;">
     If you'd like to share sketches, logos, or reference images, you can upload them here. These will be matched to your design form and reviewed during our creative process.
   </label>
   <div style="border: 2px dashed #ccc; padding: 20px; border-radius: 10px; margin-top: 15px; background: #fafafa;">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflt4Pg8rKNEH20TvUQ71AFu2rBbgMFcDoP23AbH6FhHAPqWw/viewform?embedded=true" width="100%" height="1600" frameborder="0" style="border: none; width: 100%; max-width: 100%;" allowfullscreen></iframe>
-      Loading…
-    </iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflt4Pg8rKNEH20TvUQ71AFu2rBbgMFcDoP23AbH6FhHAPqWw/viewform?embedded=true" width="100%" height="600" frameborder="0" style="border: none; width: 100%; max-width: 100%;" allowfullscreen></iframe>
     <p style="font-size: 12px; color: #777; margin-top: 10px;">
       Please include your full name or email in the form so we can connect the upload with your design request.
     </p>
   </div>
 </div>
 
-<div class="step">
+<div class="step" style="font-family: Arial, sans-serif;">
   <h2>Step 4: AI Preview</h2>
   <p style="margin-bottom: 10px; font-weight: bold;">Click the button below to generate a preview based on your message or theme.</p>
   <button onclick="generatePreview()" style="padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 5px; cursor: pointer;">🔍 Generate Preview</button>
   <div id="previewResult" style="margin-top: 20px; text-align: center;"></div>
+</div>
+
+<div class="step" style="font-family: Arial, sans-serif;">
+  <h2>Finalize Your Request</h2>
+  <p style="margin-bottom: 10px;">When you're ready, click below to send your design request to the Honor Works team.</p>
+  <div style="text-align: center;">
+    <button onclick="submitForm()" style="padding: 12px 25px; font-size: 16px; background-color: #003366; color: white; border: none; border-radius: 8px; cursor: pointer;">✅ Submit Design Request</button>
+  </div>
 </div>
 
 <script>

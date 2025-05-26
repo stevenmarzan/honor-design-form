@@ -1,4 +1,34 @@
 <div class="step">
+  <h2>Step 1: What is this for?</h2>
+  <label style="margin-bottom: 2px; display: flex; align-items: center; line-height: 1.2; font-size: 14px;"><input type="checkbox" style="margin-right: 8px;" name="purpose" value="Retirement"> Retirement</label><br>
+  <label style="margin-bottom: 2px; display: flex; align-items: center; line-height: 1.2; font-size: 14px;"><input type="checkbox" style="margin-right: 6px;" name="purpose" value="Memorial"> Memorial</label><br>
+  <label><input type="checkbox" name="purpose" value="Gift / Celebration"> Gift / Celebration</label><br>
+  <label><input type="checkbox" name="purpose" value="Something Special"> Something Special</label>
+</div>
+
+<div class="step">
+  <h2>Step 2: What's the message?</h2>
+  <label for="recipientName">Recipient or Theme:</label>
+  <input type="text" id="recipientName" placeholder="e.g., MAJ Richard Satchels" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;" />
+
+  <label for="mainMessage">Main Message or Quote:</label>
+  <textarea id="mainMessage" rows="4" placeholder="e.g., Thank you for your faithful service..." style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+
+  <label for="aiHelp">Want help creating the perfect message? Let Sasha assist:</label>
+  <textarea id="aiHelp" rows="3" placeholder="e.g., A few details you'd like included..." style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+</div>
+
+<div class="step">
+  <h2>Step 3: Choose Your Style (Check all that apply)</h2>
+  <label><input type="checkbox" name="style" value="Layered Wood"> Layered Wood</label><br>
+  <label><input type="checkbox" name="style" value="Acrylic"> Acrylic</label><br>
+  <label><input type="checkbox" name="style" value="Metal (Coming Soon)"> Metal (Coming Soon)</label><br>
+  <label><input type="checkbox" name="style" value="Painted"> Painted</label><br>
+  <label for="symbols">Symbols or Logos (optional):</label>
+  <input type="file" id="symbols" accept="image/*" />
+</div>
+
+<div class="step">
   <h2>Optional: Upload Additional Files</h2>
   <label style="font-weight: normal;">
     If you'd like to share sketches, logos, or reference images, you can upload them here. These will be matched to your design form and reviewed during our creative process.

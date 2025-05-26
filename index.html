@@ -111,6 +111,15 @@ async function generatePreview() {
 }
 
 <script>
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+  document.head.appendChild(style);
+  
   async function submitForm() {
     const data = {
       customerName: document.getElementById("customerName")?.value || "",
@@ -144,14 +153,4 @@ async function generatePreview() {
       alert("An unexpected error occurred.");
     }
   }
-</script>
-
-const style = document.createElement('style');
-style.innerHTML = `
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
-document.head.appendChild(style);
 </script>

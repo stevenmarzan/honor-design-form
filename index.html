@@ -8,78 +8,11 @@
     * {
       font-family: Arial, sans-serif;
     }
-    
-  
-  
-  .container {
-    margin: 10px;
-    padding: 15px;
-  }
-  .options {
-    flex-direction: column;
-  }
-  
-  
-  
-  
-  
-  
-}
-  .container {
-    margin: 10px;
-    padding: 15px;
-  }
-  .options {
-    flex-direction: column;
-  }
-  .sasha-helper img {
-    width: 60px;
-    height: 60px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 50%;
-  }
-  .sasha-helper p {
-    font-size: 12px;
-    text-align: center;
-    margin: 5px 0;
-  }
-  
-  
-  .sasha-helper.active .chat-box {
-    display: block;
-  }
-}
-  .container {
-    margin: 10px;
-    padding: 15px;
-  }
-  .options {
-    flex-direction: column;
-  }
-  .sasha-helper img {
-    display: none;
-  }
-  .sasha-helper p {
-    font-size: 12px;
-    text-align: center;
-    margin: 0;
-    padding: 4px;
-  }
-}
-      .container {
-        margin: 10px;
-        padding: 15px;
-      }
-      .options {
-        flex-direction: column;
-      }
-    }
     body {
-  background-color: #f7f7f7;
-  margin: 0;
-  padding: 0;
-}
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
     .container {
       max-width: 800px;
       margin: 40px auto;
@@ -87,51 +20,6 @@
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    
-    .sasha-helper img {
-      width: 100%;
-      border-radius: 50%;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    }
-    .sasha-helper p {
-      font-size: 14px;
-      margin-top: 10px;
-      color: #555;
-      text-align: center;
-    }
-    .chat-box {
-      margin-top: 10px;
-    }
-    .chat-box textarea {
-      width: 100%;
-      height: 80px;
-      padding: 8px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      resize: none;
-    }
-    .chat-box button {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      background-color: #003366;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .chat-box button:hover {
-      background-color: #005599;
-    }
-    .chat-response {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #333;
-      background: #eef2f5;
-      padding: 8px;
-      border-radius: 5px;
     }
     h1, h2 {
       color: #003366;
@@ -144,7 +32,7 @@
       margin-bottom: 10px;
       display: block;
     }
-    .step input[type="text"], .step textarea, .step input[type="file"] {
+    .step input[type="text"], .step input[type="email"], .step textarea, .step input[type="file"] {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
@@ -156,6 +44,10 @@
       padding: 20px;
       text-align: center;
       color: #555;
+    }
+    .preview img {
+      max-width: 100%;
+      display: none;
     }
     .cta {
       text-align: center;
@@ -172,48 +64,42 @@
     .cta button:hover {
       background-color: #005599;
     }
-  
-  @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-</style>
+    .preview-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .preview-button button {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .preview-button button:hover {
+      background-color: #005599;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
 <body>
-  
-    
-  
-
-<!-- Sasha Assistant -->
-<button id="sashaToggle"
-  onclick="toggleSashaPopup()"
-  style="position: fixed; bottom: 20px; right: 20px; background-color: #003366; color: white; border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 24px; cursor: pointer; z-index: 9999;">
-  💬
-</button>
-<div id="sashaPopup" style="position: fixed; bottom: 80px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); padding: 20px; display: none; z-index: 9998;">
-  <div style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/stevenmarzan/honor-design-form/2cebff0764c79c143c68e9737738db78134dc5e4/sasha1.png" alt="Sasha - Your Design Assistant" style="width: 120px; height: 120px; display: block; margin: 0 auto 10px auto; animation: fadeIn 1s ease-in-out;" />
-    <div style="font-size: 14px;">Hi, I’m Sasha! Need help coming up with the perfect design?</div>
-  </div>
-  <textarea id="chatPrompt" placeholder="Type your idea here..." style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
-  <button onclick="askSasha()" style="margin-top: 5px; width: 100%; padding: 5px; background-color: #003366; color: white; border: none; border-radius: 5px;">Get Suggestion</button>
-  <div id="chatResponse" style="font-size: 12px; margin-top: 10px;"></div>
-</div>
-</div></div>
-</div>
   <div class="container">
     <h1>Honor Works Design Session</h1>
-<h2>Contact Info</h2>
-<label for="customerName">Full Name (Required):</label>
-<input type="text" id="customerName" name="customerName" required placeholder="e.g., John Smith" style="width: 100%; padding: 8px; margin-bottom: 12px;" />
+    <h2>Contact Info</h2>
+    <label for="customerName">Full Name (Required):</label>
+    <input type="text" id="customerName" name="customerName" required placeholder="e.g., John Smith" />
 
-<label for="customerEmail">Email (Required):</label>
-<input type="email" id="customerEmail" name="customerEmail" required placeholder="e.g., john@example.com" style="width: 100%; padding: 8px; margin-bottom: 20px;" />
+    <label for="customerEmail">Email (Required):</label>
+    <input type="email" id="customerEmail" name="customerEmail" required placeholder="e.g., john@example.com" />
 
     <div class="step">
       <h2>Step 1: What is this for?</h2>
-      <label style="margin-bottom: 2px; display: flex; align-items: center; line-height: 1.2; font-size: 14px;"><input type="checkbox" style="margin-right: 8px;" name="purpose" value="Retirement"> Retirement</label><br>
-      <label style="margin-bottom: 2px; display: flex; align-items: center; line-height: 1.2; font-size: 14px;"><input type="checkbox" style="margin-right: 6px;" name="purpose" value="Memorial"> Memorial</label><br>
+      <label><input type="checkbox" name="purpose" value="Retirement"> Retirement</label><br>
+      <label><input type="checkbox" name="purpose" value="Memorial"> Memorial</label><br>
       <label><input type="checkbox" name="purpose" value="Gift / Celebration"> Gift / Celebration</label><br>
       <label><input type="checkbox" name="purpose" value="Something Special"> Something Special</label>
     </div>
@@ -226,7 +112,7 @@
       <label for="mainMessage">Main Message or Quote:</label>
       <textarea id="mainMessage" rows="4" placeholder="e.g., Thank you for your faithful service..."></textarea>
 
-      <label for="aiHelp">Want help creating the perfect message? Let Sasha assist:</label>
+      <label for="aiHelp">Want help creating the perfect message? Describe what you'd like below:</label>
       <textarea id="aiHelp" rows="3" placeholder="e.g., A few details you'd like included..."></textarea>
     </div>
 
@@ -237,17 +123,19 @@
       <label><input type="checkbox" name="style" value="Metal (Coming Soon)"> Metal (Coming Soon)</label><br>
       <label><input type="checkbox" name="style" value="Painted"> Painted</label><br>
       <label for="symbols">Symbols or Logos (optional):</label>
-      <input type="file" id="symbols" accept="image/*" />
+      <input type="file" id="symbols" name="symbols" accept="image/*" />
     </div>
 
     <div class="step">
       <h2>Step 4: Preview</h2>
-      <div class="preview">
-        AI-generated preview based on your selections will appear here.<br>
-        [Mockup Placeholder Image or Text Description]
+      <div class="preview" id="previewArea">
+        <p>Click the button below to generate a visual mockup based on your details.</p>
+        <img id="aiPreview" />
       </div>
-
+      <div class="preview-button">
+        <button onclick="runPreviewFromForm()">🖼️ Generate AI Preview</button>
       </div>
+    </div>
 
     <div class="step">
       <h2>Additional Notes or Instructions</h2>
@@ -259,48 +147,60 @@
         <button onclick="alert('Feature coming soon.')">✏️ Make Edits & Regenerate</button>
       </div>
     </div>
-    
+  </div>
+
   <script>
-    async function askSasha() {
-      const prompt = document.getElementById("chatPrompt").value;
-      const responseBox = document.getElementById("chatResponse");
+    async function generatePreview(promptText) {
+      const preview = document.getElementById("aiPreview");
+      const area = document.getElementById("previewArea");
+      area.innerHTML = "<p>Generating preview...</p>";
 
-      responseBox.innerHTML = "Thinking...";
+      // Temporary image simulation — replace with actual backend fetch
+      setTimeout(() => {
+        preview.src = "https://via.placeholder.com/600x400?text=Sample+Preview";
+        preview.style.display = "block";
+        area.innerHTML = "";
+        area.appendChild(preview);
+      }, 1500);
+    }
 
-      try {
-        const result = await fetch("/api/ask-sasha", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ prompt })
-        });
+    function runPreviewFromForm() {
+      const recipient = document.getElementById("recipientName").value;
+      const message = document.getElementById("mainMessage").value;
+      const style = [...document.querySelectorAll('input[name="style"]:checked')].map(cb => cb.value).join(', ');
+      const purpose = [...document.querySelectorAll('input[name="purpose"]:checked')].map(cb => cb.value).join(', ');
 
-        const data = await result.json();
-        responseBox.innerHTML = data.reply || "No response.";
-      } catch (err) {
-        responseBox.innerHTML = "Oops! Something went wrong.";
-        console.error(err);
-      }
+      const prompt = `Create a preview for a ${style} plaque with the purpose of ${purpose}, for ${recipient}. Include message: \"${message}\"`;
+      generatePreview(prompt);
     }
 
     async function submitForm() {
-      const data = {
-        purpose: [...document.querySelectorAll('input[name="purpose"]:checked')].map(cb => cb.value).join(', '),
-        recipient: document.getElementById("recipientName").value,
-        message: document.getElementById("mainMessage").value,
-        aiHelp: document.getElementById("aiHelp").value,
-        style: [...document.querySelectorAll('input[name="style"]:checked')].map(cb => cb.value).join(', '),
-        notes: document.getElementById("extraNotes").value
-      };
+      const formData = new FormData();
+
+      formData.append("customerName", document.getElementById("customerName").value);
+      formData.append("customerEmail", document.getElementById("customerEmail").value);
+      formData.append("recipient", document.getElementById("recipientName").value);
+      formData.append("message", document.getElementById("mainMessage").value);
+      formData.append("aiHelp", document.getElementById("aiHelp").value);
+      formData.append("notes", document.getElementById("extraNotes").value);
+
+      const purpose = [...document.querySelectorAll('input[name="purpose"]:checked')].map(cb => cb.value).join(', ');
+      const style = [...document.querySelectorAll('input[name="style"]:checked')].map(cb => cb.value).join(', ');
+
+      formData.append("purpose", purpose);
+      formData.append("style", style);
+
+      const symbolsFile = document.getElementById("symbols").files[0];
+      if (symbolsFile) {
+        formData.append("symbols", symbolsFile);
+      }
+
+      await generatePreview(`Layered artwork for ${formData.get("recipient")} with message: ${formData.get("message")}`);
 
       try {
-        const response = await fetch("https://your-secure-backend.com/api/send-design", {
+        const response = await fetch("https://your-secure-backend.onrender.com/api/send-design", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
+          body: formData
         });
 
         if (response.ok) {
@@ -313,21 +213,6 @@
         alert("An unexpected error occurred.");
       }
     }
-   
-</script>
-
-
-<script>
-  function toggleSashaPopup() {
-    const popup = document.getElementById("sashaPopup");
-    const toggle = document.getElementById("sashaToggle");
-    if (popup.style.display === "none") {
-      popup.style.display = "block";
-    } else {
-      popup.style.display = "none";
-    }
-  }
-</script>
-
-
+  </script>
+</body>
 </html>

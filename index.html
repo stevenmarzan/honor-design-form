@@ -1,11 +1,11 @@
 <form id="designForm" enctype="multipart/form-data" style="font-family: Arial, sans-serif;">
   <div class="step">
-    <h2>Your Contact Info</h2>
-    <label for="customerName">Your Name:</label>
-    <input type="text" name="customerName" id="customerName" placeholder="e.g., John Doe" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;" />
+    <h2>Start Your Design</h2>
+    <label for="customerName" style="display: block; margin-bottom: 10px; font-size: 16px;">Your Name:</label>
+    <input type="text" name="customerName" id="customerName" placeholder="Enter your name" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;" />
 
-    <label for="customerEmail">Your Email:</label>
-    <input type="email" name="customerEmail" id="customerEmail" placeholder="e.g., you@email.com" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;" />
+    <label for="customerEmail" style="display: block; margin-bottom: 10px; font-size: 16px;">Your Email:</label>
+    <input type="email" name="customerEmail" id="customerEmail" placeholder="Enter your email address" style="width: 100%; padding: 10px; margin-bottom: 30px; border: 1px solid #ccc; border-radius: 5px;" />
   </div>
 
   <div class="step">
@@ -19,13 +19,13 @@
   <div class="step">
     <h2>Step 2: What's the message?</h2>
     <label for="recipient">Recipient or Theme:</label>
-    <input type="text" name="recipient" id="recipient" placeholder="e.g., MAJ Richard Satchels" />
+    <input type="text" name="recipient" id="recipient" placeholder="e.g., MAJ Richard Satchels" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;" />
 
     <label for="message">Main Message or Quote:</label>
-    <textarea name="message" id="message" rows="4" placeholder="e.g., Thank you for your faithful service..."></textarea>
+    <textarea name="message" id="message" rows="4" placeholder="e.g., Thank you for your faithful service..." style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
 
     <label for="aiHelp">Want help creating the perfect message? Let AI assist:</label>
-    <textarea name="aiHelp" id="aiHelp" rows="3" placeholder="e.g., A few details you'd like included..."></textarea>
+    <textarea name="aiHelp" id="aiHelp" rows="3" placeholder="e.g., A few details you'd like included..." style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
   </div>
 
   <div class="step">
@@ -39,20 +39,35 @@
   </div>
 
   <div class="step">
+    <h2>Optional: Upload Additional Files</h2>
+    <label style="font-weight: normal;">
+      If you'd like to share sketches, logos, or reference images, you can upload them here. These will be matched to your design form and reviewed during our creative process.
+    </label>
+    <div style="border: 2px dashed #ccc; padding: 20px; border-radius: 10px; margin-top: 15px; background: #fafafa;">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflt4Pg8rKNEH20TvUQ71AFu2rBbgMFcDoP23AbH6FhHAPqWw/viewform?embedded=true" width="100%" height="600" frameborder="0" style="border: none; width: 100%; max-width: 100%;" allowfullscreen></iframe>
+      <p style="font-size: 12px; color: #777; margin-top: 10px;">
+        Please include your full name or email in the form so we can connect the upload with your design request.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
     <h2>Step 4: AI Preview</h2>
-    <button type="button" onclick="generatePreview()">🔍 Generate Preview</button>
-    <div id="previewResult"></div>
+    <button type="button" onclick="generatePreview()" style="padding: 10px 20px; background-color: #003366; color: white; border: none; border-radius: 5px; cursor: pointer;">🔍 Generate Preview</button>
+    <div id="previewResult" style="margin-top: 20px; text-align: center;"></div>
   </div>
 
   <div class="step">
     <h2>Additional Notes</h2>
-    <textarea name="notes" id="notes" placeholder="Anything else we should know?"></textarea>
+    <textarea name="notes" id="notes" placeholder="Anything else we should know?" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
     <input type="hidden" name="imageUrl" id="imageUrl" />
   </div>
 
   <div class="step">
     <h2>Finalize Your Request</h2>
-    <button type="submit">✅ Submit Design Request</button>
+    <div style="text-align: center;">
+      <button type="submit" style="padding: 12px 25px; font-size: 16px; background-color: #003366; color: white; border: none; border-radius: 8px; cursor: pointer;">✅ Submit Design Request</button>
+    </div>
   </div>
 </form>
 
@@ -80,7 +95,7 @@
       if (data.imageUrl) {
         latestImageUrl = data.imageUrl;
         document.getElementById("imageUrl").value = data.imageUrl;
-        resultContainer.innerHTML = `<img src="${data.imageUrl}" style="max-width: 100%; border-radius: 10px; margin-top: 10px;" />`;
+        resultContainer.innerHTML = `<img src="${data.imageUrl}" style="max-width: 100%; border-radius: 10px; margin-top: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.2);" />`;
       } else {
         resultContainer.innerHTML = "<p style='color:red;'>Failed to generate image.</p>";
       }

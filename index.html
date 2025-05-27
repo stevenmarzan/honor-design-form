@@ -109,7 +109,8 @@
   document.getElementById("designForm").addEventListener("submit", async function (e) {
     e.preventDefault();
     const form = e.target;
-    const formData = new FormData();
+     const formData = new FormData(form);
+  formData.set("imageUrl", latestImageUrl || ""); // optional AI preview
 
     const data = {
       customerName: form.customerName.value,
